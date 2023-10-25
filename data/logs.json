@@ -117,5 +117,257 @@
     "url": "/products",
     "params": {},
     "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-24T23:50:32.074Z",
+    "method": "GET",
+    "url": "/products",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:12:43.432Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:12:48.010Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:21:49.384Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:23:29.883Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:23:49.064Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:23:52.069Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:28:51.180Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:28:54.121Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:28:56.440Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:29:08.430Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:29:10.627Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:29:33.653Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:30:20.823Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:30:23.143Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:45:57.463Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:46:01.439Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:46:12.941Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:46:15.108Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:48:33.700Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:50:05.364Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:50:08.546Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:50:25.132Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:50:28.140Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:50:30.386Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:51:27.903Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:51:31.202Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:52:15.885Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:52:17.806Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:52:29.136Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:52:31.522Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:53:51.798Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:58:40.382Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:58:42.630Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:59:01.000Z",
+    "method": "PUT",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
+  },
+  {
+    "timestamp": "2023-10-25T00:59:02.930Z",
+    "method": "GET",
+    "url": "/products/1",
+    "params": {},
+    "ip": "::1"
   }
 ]

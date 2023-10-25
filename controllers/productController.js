@@ -37,10 +37,62 @@ const searchProductByName = (productName) => {
         })
 };
 
+const updateProduct = (productId, updateData) => {
+    return getProduct()
+    .then((productsData) => {
+        const productIndex = productsData.findIndex(
+            product => product.id === parseInt(productId)
+        )
+        if(productIndex != -1){
+            const existingProduct = productsData[productIndex];
+
+            if(updateData.title != undefined){
+                existingProduct.title = updateData.title;
+            }
+
+            if(updateData.price != undefined){
+                existingProduct.price = updateData.price;
+            }
+            
+            if(updateData.description != undefined){
+                existingProduct.description = updateData.description;
+            }
+            if(updateData.category != undefined){
+                existingProduct.category = updateData.category;
+            }
+            if(updateData.rating.rate != undefined){
+                existingProduct.rating.rate = updateData.rating.rate;
+            }
+            if(updateData.rating.count != undefined){
+                if(existingProduct.rating.count != undefined){
+                    existingProduct.rating.count += updateData.rating.count;
+                } else {
+                    existingProduct.rating.count = updateData.rating.count;
+                }
+            }
+            productsData[productIndex] = existingProduct;
+
+            return filesSystem.writeFile(productsFilePath, JSON.stringify(productsData, null, 2), 'utf-8')
+                .then(() => {
+                    return existingProduct;
+                })
+                .catch((error) => {
+                    throw new Error('Não foi possivel atualizar o produto')
+                })
+
+        } else {
+            throw new Error('Não foi possivel encontrar produto com esse Id');
+        }
+    })
+    .catch((error) => {
+        throw new Error('Não foi possivel ler os produtos');
+    })
+}
 
 
 module.exports = {
     getProductById,
     getProduct,
-    searchProductByName
+    searchProductByName,
+    updateProduct
 };

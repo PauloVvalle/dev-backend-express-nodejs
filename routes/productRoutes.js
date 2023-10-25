@@ -34,5 +34,17 @@ router.get('/search/:name', (req, res) => {
         .catch((error) => res.status(500).send())
 })
 
+router.put('/:id', (req, res) => {
+    const idRecebido = req.params.id;
+    const updateData = req.body;
+
+    productController.updateProduct(idRecebido, updateData)
+        .then(() => {
+            res.status(200).send('produto atualizado com sucesso')
+        })
+        .catch((error) => {
+            res.send(error);
+        })
+})
 
 module.exports = router;
