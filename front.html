@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Produtos</title>
+    <style>
+        #product-list {
+            list-style: none;
+            padding: 0;
+        }
+        #product-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pesquisa de Produtos</h1>
+    <input type="text" id="product-search" placeholder="Digite o nome do produto" onkeyup="searchProduct()">
+    <ul id="product-list"></ul>
+
+    <script>
+        function searchProduct() {
+            const searchTerm = document.getElementById("product-search").value;
+
+            fetch(`http://localhost:3000/products/search/${searchTerm}`)
+                .then(response => response.json())
+                .then(products => {
+                    const productList = document.getElementById("product-list");
+                    productList.innerHTML = "";
+
+                    products.forEach(product => {
+                        const li = document.createElement("li");
+                        li.textContent = `${product.title} - Price: $${product.price}`;
+                        productList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error("Error searching for products: ", error));
+        }
+    </script>
+</body>
+</html>

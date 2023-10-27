@@ -1,17 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "Mochila para notebook 15",
-    "price": 99.99,
-    "description": "asdasdcvklcxvkqoijqwoj129s",
-    "category": "men's clothing",
-    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    "rating": {
-      "rate": 7,
-      "count": 233
-    }
-  },
-  {
     "id": 2,
     "title": "Mens Casual Premium Slim Fit T-Shirts ",
     "price": 22.3,

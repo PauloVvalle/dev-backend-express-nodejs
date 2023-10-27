@@ -47,4 +47,31 @@ router.put('/:id', (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+    const idRecebido = req.params.id;
+
+    productController.deleteProducts(idRecebido)
+        .then((deletedProduct) => {
+                res.status(200).json(deletedProduct);
+        })
+        .catch((error) => {
+            res.status(500).send('error ao excluir produto')
+        })   
+
+})
+
+router.put('/', (req, res) => {
+    const newProductsData = req.body;
+
+    productController.addProduct(newProductsData)
+        .then((product) => {
+            res.status(201).json(product)
+        })
+        .catch((error) => {
+            res.status(500).send('erro ao adicionar o produto')
+        })
+    
+})
+
+
 module.exports = router;

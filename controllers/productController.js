@@ -89,10 +89,73 @@ const updateProduct = (productId, updateData) => {
     })
 }
 
+const deleteProducts = (productId) => {
+    return getProduct()
+        .then((productsData) => {
+            const productIndex = productsData.findIndex(
+                product => product.id === parseInt(productId)
+            )
+
+            if(productIndex != -1){
+
+                const updatedProductsData = productsData.filter(
+                    product => product.id !== parseInt(productId)
+                )
+
+                const deletedProduct = productsData[productIndex];
+
+                return filesSystem.writeFile(productsFilePath, JSON.stringify(updatedProductsData, null, 2), 'utf-8')
+                .then(() => {
+                    return deletedProduct;
+                })
+                .catch((error) => {
+                    throw new Error('não foi possivel excluir o produto')
+                })
+
+            } else {
+                throw new Error('Produto não encontrado')
+            }
+
+        })
+        .catch((error) => {
+            throw new Error('não foi ler os produtos')
+        })
+}
+
+const addProducts = (newProductData) => {
+    return getProduct()
+    .then((productsData) => {
+        let maxProductId = -1;
+        productsData.forEach(product => {
+            if(product.id > maxProductId){
+                maxProductId = product.id;
+            }
+            
+        });
+
+        const newProductId = maxProductId + 1;
+        const newProducWithtId = Object.assign({id: newProductId}, newProductData)
+
+        productsData.push(newProducWithtId)
+
+        return filesSystem.writeFile(productsFilePath, JSON.stringify(productsData, null, 2), 'utf-8')
+            .then(() => {
+                return newProducWithtId;
+            })
+            .catch((error) => {
+                throw new Error('Não foi possivell adicionar o produto');
+            })
+    })
+    .catch((error) => {
+        console.error('Não foi possivel ler o arquivo de produtos:' + error)
+    })
+}
 
 module.exports = {
     getProductById,
     getProduct,
     searchProductByName,
-    updateProduct
+    updateProduct,
+    deleteProducts,
+    addProducts
 };
