@@ -151,11 +151,124 @@ const addProducts = (newProductData) => {
     })
 }
 
+// const applyDiscount = (productId, discount = 0.10) => {
+//     return getProduct()
+//         .then((productsData) => {
+//             const productIndex = productsData.findIndex(
+//                 product => product.id === parseInt(productId)
+//             )
+//             if (productIndex != -1) {
+//                 productsData[productIndex].price *= (1 - discount);
+                
+//                 // Atualiza o produto com desconto no arquivo JSON
+//                 filesSystem.readFile(productsFilePath, 'utf8', (err, fileData) => {
+//                     if (err) {
+//                         console.error('Erro ao ler o arquivo:', err);
+//                         return;
+//                     }
+
+//                     let obj = JSON.parseInt(fileData); // converte string para objeto
+//                     obj[productIndex] = productsData[productIndex]; // atualiza produto no objeto
+
+//                     filesSystem.writeFile(productsFilePath, JSON.stringify(obj), 'utf8', (err) => {
+//                         if (err) {
+//                             console.error('Erro ao escrever o arquivo:', err);
+//                         } else {
+//                             console.log('Dados atualizados com sucesso!');
+//                         }
+//                     });
+//                 });
+
+//                 return productsData[productIndex];
+//             } else {
+//                 throw new Error('Produto não encontrado');
+//             }
+//         })
+//         .catch((error) => {
+//             throw new Error('Erro ao aplicar desconto: ' + error.message);
+//         })
+// }
+
+const applyDiscount = (productId) => {
+    return getProduct()
+        .then((productsData) => {
+            const productIndex = productsData.findIndex(
+                product => product.id === parseInt(productId)
+            )
+
+            if(productIndex != -1){
+                const existingProduct = productsData[productIndex]
+                
+                existingProduct.price = existingProduct.price * 0.9;
+                
+                productsData[productIndex] = existingProduct;
+
+                return filesSystem.writeFile(productsFilePath, JSON.stringify(productsData, null, 2), 'utf-8')
+                    .then(() => {
+                        return existingProduct;
+                    })
+                    .catch((error) => {
+                        throw new Error('Não foi possível aplicar o desconto ao produto!')
+                    })
+            } else {
+                throw new Error('Produto não encontrado')
+            }
+        })
+        .catch((error) => {
+            throw new Error('Não possível ler o arquivo de produtos')
+        })
+}
+
+const updateProductRating = (productId, newRating) => {
+    if(newRating < 0 || newRating > 5 ){
+        throw new Error('Nota inválida')
+    }
+
+    return getProduct()
+        .then((productsData) => {
+            const productIndex = productsData.findIndex(
+                product => product.id === parseInt(productId)
+            )
+
+            if(productIndex != -1){
+                const existingProduct = productsData[productIndex]
+
+                //jeito mais rápido de fazer atribuições
+                //const { rate, count } = existingProduct.rating;
+
+                const rate = existingProduct.rating.rate;
+                const count = existingProduct.rating.count;
+
+                existingProduct.rating.rate = (rate * count + newRating) / (count + 1);
+                existingProduct.rating.count += 1;
+
+                productsData[productIndex] = existingProduct;
+
+                return filesSystem.writeFile(productsFilePath, JSON.stringify(productsData, null, 2), 'utf-8')
+                    .then(() => {
+                        return existingProduct;
+                    })
+                    .catch((error) => {
+                        throw new Error('Não foi possível atualizar a nota do produto')
+                    })
+
+            } else {
+                throw new Error('Produto não encontrado')
+            }
+        })
+        .catch((error) => {
+            throw new Error('Não possível ler o arquivo de produtos')
+        })
+}
+
+
 module.exports = {
     getProductById,
     getProduct,
     searchProductByName,
     updateProduct,
     deleteProducts,
-    addProducts
+    addProducts,
+    applyDiscount,
+    updateProductRating
 };

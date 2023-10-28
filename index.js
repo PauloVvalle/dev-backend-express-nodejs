@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(cors())
 app.use(redirectMiddlewares);
 app.use(logMiddleware);
-app.use(rateLimit);
+// app.use(rateLimit);
 
 app.get('/', (req, res) => {
     res.send('Bem vindo a API de E-commerce do Infnet back-end!');

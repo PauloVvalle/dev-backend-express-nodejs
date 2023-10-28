@@ -73,5 +73,31 @@ router.put('/', (req, res) => {
     
 })
 
+router.patch('/:id/discount', (req, res) => {
+    const productId = req.params.id;
+
+    productController.applyDiscount(productId)
+        .then((product) => {
+            res.status(200).json(product)
+        })
+        .catch((error) => {
+            res.status(500).send('Erro ao adicionar o desconto')
+        })
+    
+})
+
+router.patch('/:id/rating', (req, res) => {
+    const productId = req.params.id;
+    const rating = req.body.rating;
+
+    productController.updateProductRating(productId, rating)
+        .then((product) => {
+            res.status(200).json(product)
+        })
+        .catch((error) => {
+            res.status(500).send('Erro ao atualizar a nota do produto')
+        })
+})
+
 
 module.exports = router;
